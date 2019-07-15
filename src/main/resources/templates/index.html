@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto search</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">  
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+       
+       <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+       <link rel="stylesheet" href="../static/css/animate.css">
+       
+    
+</head>
+
+<body>
+ 
+<!--nav bar main menu-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" >
+       <div class="container" >
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand" id="navBarAutoSearch"><i class="fas fa-car"></i> Auto search</a>
+            </div>
+            
+            <div class="main_menu">
+               
+                <a id="modalForRegistryBtn" href="#" data-toggle="modal" data-target="#modalForRegistry"><i class="fas fa-address-card"></i> Registry </a> 
+                
+                <a id="modalForMessageBtn" href="#" data-toggle="modal" data-target="#modalForMessages"><i class="fas fa-envelope"></i> Messages </a>
+                
+                <a id="modalForFavouriteBtn" href="#" data-toggle="modal" data-target="#modalForFavourite"><i class="fas fa-star"></i> Favourite </a>
+                
+                <a id="modalForLogInBtn" href="#" data-toggle="modal" data-target="#modalForLogIn"><i class="fas fa-sign-in-alt"></i> Log In </a> 
+                
+                <a id="modalForExitBtn" href="#"><i class="fas fa-sign-out-alt"></i> Exit </a> 
+                
+            </div>
+        </div>    
+    </nav>        
+
+
+<!--modal windov for favourite-->   
+    <div class="modal fade" id="modalForFavourite" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h5 class="modal-title" id="modalForFavouriteLable"><i class="fas fa-star"></i> Favourite
+                    </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div> 
+            
+            <div class="modal-body" id="modalForFavouriteBody">
+                <div class="container-fluid">
+                        
+                        
+                        
+                </div>
+            </div>
+            
+        </div>
+      </div>
+    </div>
+    
+    
+<!--modal windov for log-in-->
+    <div class="modal fade" id="modalForLogIn" tabindex="-1" role="dialog" aria-labelledby="modalForLogIn" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalForLogInLable"><i class="fas fa-sign-in-alt"></i> Log in
+                    </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="modalForLogInEmail"><i class="fas fa-at"></i> Email</label>
+                            <input type="email" class="form-control" id="modalForLogInEmail" aria-describedby="emailHelp" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modalForLogInPassword"><i class="fas fa-key"></i> Password</label>
+                            <input type="password" class="form-control" id="modalForLogInPassword" placeholder="Password" required>
+                        </div>
+                            <button type="button" class="btn btn-primary btn-block" id="modalForLogInButton">Submit</button>
+                    </form>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+      
+           
+<!--modal windov for registry-->
+    <div class="modal fade" id="modalForRegistry" tabindex="-1" role="dialog" aria-labelledby="exampleModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalForRegistryLogo"><i class="fas fa-address-card"></i> Registry
+                    </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                   <div class="container">
+                    <form id="modalForRegistryForm"> 
+                       
+                       <div class="form-group">
+                            <label for="modalForRegistryName"><i class="fas fa-user"></i> Name</label>
+                            <input type="text" name="modalForRegistryName" class="form-control" id="modalForRegistryName"  placeholder="Enter your name" required>
+                            <small id="modalForRegistryNameError"></small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="modalForRegistrySurname"><i class="fas fa-user"></i> Surname</label>
+                            <input type="text" name="modalForRegistrySurname" class="form-control" id="modalForRegistrySurname"  placeholder="Enter your surname" required>
+                            <small id="modalForRegistrySurnameError"></small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="modalForRegistryTelephone"><i class="fas fa-phone"></i> Telephone</label>
+                            <input type="number" name="modalForRegistryTelephone" class="form-control" id="modalForRegistryTelephone" placeholder="begin from 3, without +" required>
+                            <small id="modalForRegistryTelephoneError"></small>
+                        </div>
+                        
+                       
+                        <div class="form-group">
+                            <label for="modalForRegistryEmail"><i class="fas fa-at"></i> Email</label>
+                            <input type="email" name="modalForRegistryEmail" class="form-control" id="modalForRegistryEmail" aria-describedby="emailHelp" placeholder="Enter your email" required>
+                            <small id="modalForRegistryEmailError"></small>
+                        </div>
+                    
+                        
+                        <div class="form-group">
+                            <label for="modalForRegistryPassword"><i class="fas fa-key"></i> Password</label>
+                            <input type="password" name="modalForRegistryPassword" class="form-control" id="modalForRegistryPassword" placeholder="Enter password" required>
+                            <small id="modalForRegistryPasswordError"></small>
+                        </div>
+                           
+                        <div class="form-group">
+                            <label for="modalForRegistryPasswordConfirm"><i class="fas fa-key"></i> Password confirm</label>
+                            <input type="password" name="modalForRegistryPasswordConfirm" class="form-control" id="modalForRegistryPasswordConfirm" placeholder="Enter password confirm" required>
+                            <small id="modalForRegistryPasswordConfirmError"></small>
+                        </div>
+                        
+                        <div class="form-group" >
+                           <div class="container">
+                            <div class="row">
+                                
+                                <div class="form-group pr-1 w-50">
+                                <label for="modalForRegistryGender"><i class="fas fa-transgender"></i> Gender</label>    
+                                     <select id="modalForRegistryGender" class="form-control" required >
+                                         <option selected value="male">Male</option>
+                                         <option value="female">Female</option>
+                                     </select>
+                                </div>
+                             
+                                <div class="form-group pl-1 w-50">
+                                    <label for="modalForRegistryAge"><i class="fas fa-calendar-alt"></i>Age</label>                        
+                                    <input class="form-control" name="modalForRegistryAge" type="number" value="" id="modalForRegistryAge" placeholder="Enter your age" required>
+                                    <small id="modalForRegistryAgeError"></small>
+                                </div>
+                                </div> 
+                            </div>
+                            
+                        </div> 
+              
+                        <button type="button" id="modalForRegistryButtonSubmitRegistry" class="btn btn-primary btn-block" disabled>Registry</button>
+                             
+                                 
+                    </form>
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+    </div>      
+
+
+<!--modal for sale car-->          
+    <div class="modal fade bd-example-modal-lg" id="modalForNewCar" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalForSaleCarLable"> Sale car
+                                        </h5>
+                                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div> 
+
+                                    <div class="modal-body" id="modalForSaleCar">
+                                       <div class="container">
+                                           <div class="row">
+                                               <div class="col-6">
+                                                    <form id="modalForSaleCarForm">
+                                                       <div class="form-group">
+                                                           <label for="modalForNewCarInputFile">Car photo</label>
+                                                           <input type="file" class="form-control-file" name="modalForNewCarInputFile" id="modalForNewCarInputFile">
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label for="modalForNewCarInputFile">Car photo</label>
+                                                           <input type="file" class="form-control-file" name="modalForNewCarInputFile" id="modalForNewCarInputFile-1">
+                                                       </div>
+                                                       <div class="form-group">
+                                                           <label for="modalForNewCarInputCategory">Enter Category</label>
+                                                           <input type="text" class="form-control" name="modalForNewCarInputCategory" id="modalForNewCarInputCategory" placeholder="Category">
+                                                           <small id="modalForNewCarInputCategoryError"></small>
+                                                       </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputMake">Enter Make</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputMake" id="modalForNewCarInputMake" placeholder="Make">
+                                                            <small id="modalForNewCarInputMakeError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputModel">Enter Model</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputModel" id="modalForNewCarInputModel" placeholder="Model">
+                                                            <small id="modalForNewCarInputModelError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputMileage">Enter Mileage</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputMileage" id="modalForNewCarInputMileage" placeholder="Mileage">
+                                                            <small id="modalForNewCarInputMileageError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputDateOfManufacture">Enter date of manufacture</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputDateOfManufacture" id="modalForNewCarInputDateOfManufacture" placeholder="yyyy-mm-dd">
+                                                            <small id="modalForNewCarInputDateOfManufactureError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputVin">VIN</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputVin" id="modalForNewCarInputVin" placeholder="VIN">
+                                                            <small id="modalForNewCarInputVinError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputPrice">Enter Price</label>
+                                                            <input type="number" class="form-control" name="modalForNewCarInputPrice" id="modalForNewCarInputPrice" placeholder="Enter price" >
+                                                            <small id="modalForNewCarInputPriceError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputVolume">Engine volume</label>
+                                                            <input type="number" class="form-control" name="modalForNewCarInputVolume" id="modalForNewCarInputVolume" placeholder="Engine volume">
+                                                            <small id="modalForNewCarInputVolumeError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputDrive">Drive</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputDrive" id="modalForNewCarInputDrive" placeholder="AWD, FWD...">
+                                                            <small id="modalForNewCarInputDriveError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputTransmission">Transmission</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputTransmission" id="modalForNewCarInputTransmission" placeholder="automatic, mechanik, variator">
+                                                            <small id="modalForNewCarInputTransmissionError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputBody">Body</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputBody" id="modalForNewCarInputBody" placeholder="Body">
+                                                            <small id="modalForNewCarInputBodyError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputFuel">Gas</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputFuel" id="modalForNewCarInputFuel" placeholder="Gas">
+                                                            <small id="modalForNewCarInputFuelError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputColor">Color</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputColor" id="modalForNewCarInputColor" placeholder="Color">
+                                                            <small id="modalForNewCarInputColorError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputNumberOfDoors">Number Of Doors</label>
+                                                            <input type="number" class="form-control" name="modalForNewCarInputNumberOfDoors" id="modalForNewCarInputNumberOfDoors" placeholder="Number Of Dors">
+                                                            <small id="modalForNewCarInputNumberOfDoorsError"></small>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputNumberOfSeats">Number Of Seats</label>
+                                                            <input type="number" class="form-control" name="modalForNewCarInputNumberOfSeats" id="modalForNewCarInputNumberOfSeats" placeholder="Number Of Seats">
+                                                            <small id="modalForNewCarInputNumberOfSeatsError"></small>
+                                                        </div>
+                                                         <div class="form-group">
+                                                            <label for="modalForNewCarInputComfort">Comfort</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputComfort" id="modalForNewCarInputComfort" placeholder="comfort">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputAdditionalEquipment">Additional Equipment</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputAdditionalEquipment" id="modalForNewCarInputAdditionalEquipment" placeholder="Additional Equipment">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="modalForNewCarInputDescription">Car description</label>
+                                                            <input type="text" class="form-control" name="modalForNewCarInputDescription" id="modalForNewCarInputDescription" placeholder="Car description">
+                                                            <small id="modalForNewCarInputDescriptionError"></small>
+                                                        </div>
+                                                        <button class="btn btn-primary" type="button" id="modalForNewCarInputAddCarBTN" >Add Car</button>
+                                                    </form>
+                                                </div>    
+                                            </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                          </div>
+                     </div>                  
+      
+<!--modal for car by id-->
+    <div class="modal fade" id="modalForCarById" tabindex="-1" role="dialog" aria-hidden="true">
+      
+    </div>   
+   
+<!--search-->  
+    <div class="container">
+    <div class="form" id="searchForm">
+        <div class="input-group" id="search">
+            <input type="text" id="searchInput" name="search" class="search-query form-control required" placeholder="Search" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger" type="submit" id="searchButton" >
+                    <i class="fas fa-search"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+    </div>
+    
+    
+<!--ALL CARS & FILTERS-->    
+    <div class="container pt-3">
+    <div class="row">
+<!--filters-->
+    <div class="col-2" id="filters">   
+    
+    <!--select make-->   
+        <div class="form-group">      
+            <div class="dropdown">     
+                <select class="form-control form-control-sm" id="filtersDropDownMake">
+                   <option value="">Make</option>
+                </select>
+            </div>
+        </div> 
+    <!--select model-->  
+        <div class="form-group">     
+            <div class="dropdown">     
+                <select id="filtersDropDownModel" class="form-control form-control-sm" >
+                    <option value="">Model</option>
+                    
+                </select>                         
+            </div>
+        </div>
+    <!--sort by-->    
+        <div class="form-group">     
+        <div class="dropdown">     
+            <select id="cardContainerSortBy" class="form-control form-control-sm" >
+                <option value="make&sort=model,ASC">Sort by</option>
+                <option value="make,ASC&sort=model,ASC">Name</option>
+                <option value="make,DESC&sort=model,DESC">Name from end</option>
+                <option value="price,ASC" id="cardContainerSortByMinPrice">Min Price</option>
+                <option value="price,DESC" id="cardContainerSortByMaxPrice">Max Price</option>
+                <option value="addTime,ASC">Add time</option>
+                <option value="addTime,DESC">Add time, reverce</option>
+            </select>                         
+        </div>
+        </div>
+    <!--size-->
+        <div class="form-group">     
+        <div class="dropdown">     
+            <select id="cardContainerSortByKilk" class="form-control form-control-sm" >
+                <option class="sortOption" value="10">Kilk of elem</option>
+                <option class="sortOption" value="20">20</option>
+                <option class="sortOption" value="50">50</option>
+                <option class="sortOption" value="100">100</option>
+            </select>                        
+        </div>
+        </div>
+
+    <!--sale car-->      
+        <div class="form-group">
+            <button type="button" class="btn btn-primary w-100" id="saleCar" data-toggle='modal' data-target='#modalForNewCar'>Sale car</button>
+        </div>
+        
+    </div> 
+    
+    
+              
+    <div class="col-10" id="all-cards">
+    <!--cards in js-file-->
+    </div>
+                    
+                    
+    <div class="row pb-5">
+        <button type="button" id="btnMore" class="btn btn-primary">More cars</button>
+    </div>
+    
+    
+    </div>    
+    </div>                                       
+        
+       
+<!--up button -->
+    <div id="content">Scroll &darr;</div>
+    <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+                                                        
+      
+
+    
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js"></script>
+    
+    <script src="../static/js/wow.js"></script>
+    <script> new WOW().init();</script>
+    <script src="../static/js/server.js"></script>
+    <script src="../static/js/user-js.js"></script>
+    <script src="../static/js/car-js.js"></script>
+
+    
+     
+</body>
+</html>
